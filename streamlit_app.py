@@ -21,12 +21,13 @@ class_names = [
 
 st.title("Ialando - Clasificación de prendas")
  
-uploaded_files = st.file_uploader(
-    "Sube una imagen de la prenda que quieres clasificar", accept_multiple_files="directory", type=["jpg", "png", "jpeg"]
+uploaded_file = st.file_uploader(
+    "Sube una imagen de la prenda que quieres clasificar",
+    type=["jpg", "png", "jpeg"]
 )
  
-if uploaded_files is not None:
-    image = Image.open(uploaded_files).convert("L") # Escala de grises
+if uploaded_file is not None:
+    image = Image.open(uploaded_file).convert("L") # Escala de grises
     image = ImageOps.invert(image) # Invierte la imagen
     image = image.resize((28, 28)) # Redimensiona
     image = ImageOps.autocontrast(image)
