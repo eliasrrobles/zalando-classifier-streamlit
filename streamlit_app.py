@@ -34,8 +34,8 @@ if uploaded_file is not None:
     st.image(image, caption="Imagen procesada")
 
     # Convierte la imagen a un array normalizado
-    img_array = (np.array(image, dtype=np.float32) / 255.0).flatten()
-    #img_array = img_array.reshape(1, 28, 28, 1)
+    img_array = np.array(image, dtype=np.float32) / 255.0
+    img_array = img_array.reshape(1, 28, 28, 1)
 
     #Predicción
     prediction = model.predict(img_array)
