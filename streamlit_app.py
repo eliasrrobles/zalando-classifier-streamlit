@@ -26,7 +26,7 @@ uploaded_files = st.file_uploader(
 )
  
 if uploaded_files is not None:
-    image = Image.Open(uploaded_files).convert("L") # Escala de grises
+    image = Image.open(uploaded_files).convert("L") # Escala de grises
     image = ImageOps.invert(image) # Invierte la imagen
     image = image.resize((28, 28)) # Redimensiona
     image = ImageOps.autocontrast(image)
