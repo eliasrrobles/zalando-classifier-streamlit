@@ -38,7 +38,7 @@ if uploaded_files is not None:
 
     #Predicción
     prediction = model.predict(img_array)
-    predicted_class = 
+    predicted_class = class_names[np.argmax(prediction)]
 
     # Muestra el resultado
     st.write(f"Vector de predicción: {prediction}")
